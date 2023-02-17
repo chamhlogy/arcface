@@ -4,9 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 项目新建页面
- * 未实装
- * 不知道怎么实现
- * 2018-3-4 张煜
  */
 class Add extends Controller
 {

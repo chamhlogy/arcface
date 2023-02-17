@@ -2,15 +2,9 @@
 namespace app\api\controller;
 use think\Controller;
 use app\api\model\Resource as ResourceModel;
-/**
- * 资源添加修改清除
- * 未实装
- */
+
 class Resource extends Controller{
-    /**
-     * 添加资源
-     * 2018-3-5 张煜
-     */
+
     public function add($name,$founder,$safetygrade,$type,$localaddress,$state){
         $resource=new ResourceModel();
         $resource->data([
@@ -28,10 +22,7 @@ class Resource extends Controller{
         $resource->save();
         return $resource->ID;
     }
-    /**
-     * 修改资源
-     * 2018-3-5 张煜
-     */
+
     public function edit($id,$name,$editor,$safetygrade,$type,$localaddress,$state,$note=''){
         $resource=ResourceModel::get(['ID'=>$id]);
         if(($editor)===$resource->Founder){
@@ -63,10 +54,7 @@ class Resource extends Controller{
             $log->addresourcechangelog($editor,$id,$resource->ID,$note,$uploader);
         }
     }
-    /**
-     * 审核完成更新内容
-     * 2018-3-16 张煜
-     */
+
     public function editaccept($oldid,$newid,$logid){
         $old=ResourceModel::get(['ID'=>$oldid]);
         $new=ResourceModel::get(['ID'=>$newid]);
@@ -87,10 +75,7 @@ class Resource extends Controller{
             return json(['status'=>1]);
         }
     }
-    /**
-     * 审核不通过取消内容
-     * 2018-3-16 张煜
-     */
+
     public function editcancel($newid,$logid){
         $new=ResourceModel::get(['ID'=>$newid]);
         if($new){
@@ -100,27 +85,18 @@ class Resource extends Controller{
             return json(['status'=>1]);
         }
     }
-    /**
-     * 清除资源
-     * 2018-3-8 张煜
-     */
+
     public function delete($id){
         $resource=ResourceModel::get(['ID'=>$id]);
         $resource->delete();
     }
-    /**
-     * 批量清除资源
-     * 2018-3-8 张煜
-     */
+
     public function deletelist($idlist){
         foreach($idlist as $value){
             $this->delete($value);
         }
     }
-    /**
-     * 设置子资源（覆盖）
-     * 2018-3-5 张煜
-     */
+
     public function setchild($id,$childrenlist,$editor){
         $resource=ResourceModel::get(["ID"=>$id]);
         if($resource){
@@ -129,11 +105,7 @@ class Resource extends Controller{
             $resource->ModifiedDate=date('Y-m-d H:i');
         }
     }
-    /**
-     * 获取该发包人员旗下的资源
-     * 2018-3-8 张煜
-     * 修改 2018-3-16 张煜
-     */
+
     public function getallresourcelist($userid){
         $list=ResourceModel::all(["Founder"=>'c'.$userid]);
         $project=new \app\api\controller\Project();
@@ -220,14 +192,10 @@ class Resource extends Controller{
             return '接包员 '.$user->getusername($userid);
         }
     }
-    /**
-     * 获取资源
-     * 2018-3-8 张煜
-     */
+
     public function getresource($id){
         $resource=ResourceModel::get(['ID'=>$id]);
         if($resource){
-            //if($resource->Type=="文档"){
                 $data=[
                     'name'=>$resource->Name,
                     'type'=>$resource->Type,
@@ -239,7 +207,6 @@ class Resource extends Controller{
                     'uploadtime'=>$resource->CreationDate,
                 ];
                 return $data;
-           /**}else{
                 $data=[
                     'name'=>$resource->Name,
                     'type'=>$resource->Type,
@@ -254,10 +221,6 @@ class Resource extends Controller{
             }*/
         }
     }
-    /**
-     * 审核通过成果资源
-     * 2018-3-25 张煜
-     */
     public function acceptresult($id){
         $resource=ResourceModel::get(['ID'=>$id]);
         if($resource){
@@ -267,10 +230,6 @@ class Resource extends Controller{
             }
         }
     }
-    /**
-     * 打回成果
-     * 2018-3-25 张煜
-     */
     public function returnresult($id){
         $resource=ResourceModel::get(['ID'=>$id]);
         if($resource){

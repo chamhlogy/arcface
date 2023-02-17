@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 邮件的发送页面
- * 已实装
- * 2018-3-4 张煜
  */
 class Sendemail extends Controller
 {

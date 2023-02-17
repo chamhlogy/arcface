@@ -4,17 +4,9 @@ use think\Controller;
 use app\api\model\Log as LogModel;
 
 
-/**
- * Log操作类
- * 2018-3-9袁宜照
- */
+
 class Log extends Controller{
 
-    /**
-     * 根据id获取log
-     * 2018-3-9袁宜照
-     * 修改 2018-3-9 张煜
-     */
     public function getLogById($id)
     {
         $log = LogModel::get(['ID'=>$id]);
@@ -30,11 +22,6 @@ class Log extends Controller{
             return $data;
         }
     }
-    /**
-     * 获取所有Log
-     * 2018-3-9 袁宜照
-     * 修改 2018-3-9 张煜
-     */
     public function getAllLog()
     {
         $data = [];
@@ -93,10 +80,6 @@ class Log extends Controller{
             return $data;
         }
     }
-    /**
-     * 添加Log
-     * 2018-3-9袁宜照
-     */
     public static function addLog($proid,$username,$id)
     {
         $log = new LogModel();
@@ -198,10 +181,6 @@ class Log extends Controller{
         }
         return 0;
     }
-    /**
-     * 添加新资源修改请求log
-     * 2018-3-16 张煜
-     */
     public function addresourcechangelog($logger,$oldid,$changeid,$note,$user){
         $log = new LogModel();
         $log->data([
@@ -213,10 +192,6 @@ class Log extends Controller{
         ]);
         $log->save();
     }
-    /**
-     * 获取资源加载请求log
-     * 2018-3-16 张煜
-     */
     public function getresourcechange($userid){
         $log=\think\Db::query("select * from log where Note like '%(".$userid.")%'");
         $data=[];
@@ -238,20 +213,12 @@ class Log extends Controller{
         }
         return $data;
     }
-    /**
-     * 成果文件上传log
-     * 2018-3-16 张煜
-     */
     public function addresultupload($id){
         $log=new LogModel();
         $log->data([
 
         ]);
     }
-    /**
-     * getprojectlog
-     * 2018-3-16 张煜
-     */
     public function getprojectlog($id){
         $log = LogModel::all(['ProjectID'=>$id]);
         $data=[];
@@ -266,10 +233,6 @@ class Log extends Controller{
         }
         return $data;
     }
-    /**
-     * 更改资源修改log状态
-     * 2018-3-16 张煜
-     */
     public function setresourcelog($id){
         $log=LogModel::get(["ID"=>$id]);
         if($log){
@@ -277,18 +240,10 @@ class Log extends Controller{
             $log->save();
         }
     }
-    /**
-     * 用于获取用户考勤信息
-     * 2018-4-7 张煜
-     */
     public function getuserlog($id){
         $list=\think\Db::query("select * from log where Note like '%@".$id."@%'");
         return $list;
     }
-    /**
-     * 用于判断用户是否已签到
-     * 2018-4-7 张煜
-     */
     public function getset($id,$projectid){
         $list=\think\Db::query("select * from log where Note like '%@".$id."@%'");
         $start=null;

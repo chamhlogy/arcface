@@ -7,14 +7,11 @@ use \app\api\controller\Administractors;
 /**
  * 用于登陆界面
  * 自动识别人员并跳转
- * 2018-3-4 张煜
  */
 class Login extends Controller{
     /**
      * 自动通过手机号识别登陆
      * 实装
-     * 2018-3-4 张煜
-     * 2018-3-12袁宜照 将人脸检测分离到了其他地方
      */
     public function login($phonenumber,$password){
         $user=new Users();
@@ -32,7 +29,6 @@ class Login extends Controller{
     }
     /**
      * 人脸检测
-     * 2018-3-12袁宜照
      */
     public function facecheck($phonenumber,$faceinform)
     {
@@ -51,9 +47,6 @@ class Login extends Controller{
     }
     /**
      * 忘记密码方法
-     * 未实装
-     * 2018-3-4 张煜
-     * 修改 2018-4-4 袁宜照
      */
     public function forget($phonenumber,$password){
         $user=new Users();
@@ -72,15 +65,12 @@ class Login extends Controller{
 
     /**
      * 注册方法
-     * 未实装
-     * 2018-3-4 张煜
      */
     public function register(){
         
     }
     /**
      * 登出方法
-     * 2018-3-24 张煜
      */
     public function logout($userid,$type){
         switch ($type) {

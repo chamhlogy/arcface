@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 收入明细
- * 未实装
- * 界面未设计
  */
 class Incomedetail extends Controller
 {

@@ -4,9 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 项目资源添加的详细页面
- * 未实装
- * 界面未设计
- * 2018-3-4 张煜
  */
 class Addresourcedetail extends Controller
 {

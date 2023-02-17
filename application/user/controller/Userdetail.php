@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 现在是照搬的contractor的用户详情
- * 以后要改
- * 2018-3-4 张煜
  */
 class Userdetail extends Controller
 {

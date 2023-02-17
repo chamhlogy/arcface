@@ -4,9 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 项目详情界面
- * 部分实装
- * 早期文件
- * 需要更改
  */
 class Projectdetail extends Controller
 {

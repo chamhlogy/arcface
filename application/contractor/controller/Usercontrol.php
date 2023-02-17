@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 用户管理界面
- * 未实装
- * 界面未设计
  */
 class Usercontrol extends Controller
 {

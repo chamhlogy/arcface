@@ -4,7 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 历史记录页面
- * 已实装
  */
 class History extends Controller
 {

@@ -11,7 +11,6 @@ class Email extends Controller{
      * 通过id获取当前id的接包人员前十封未读信件
      * 已实装
      * 需要修改 
-     * 2018-3-15 张煜修改
      */
     public function getemaillistforcontractortop($id){//获取收件箱前十contractor
         $emaillist=\think\Db::query("select * from email where RecipientsID like '%,c".$id.",%'");
@@ -73,9 +72,6 @@ class Email extends Controller{
     }
     /**
      * 通过id获取接包人员的前十封未读信件
-     * 已实装
-     * 需要修改
-     * 2018-3-15 张煜修改
      */
     public function getemaillistforusertop($id){//获取收件箱前十user
         $emaillist=\think\Db::query("select * from email where RecipientsID like '%,u".$id.",%'");
@@ -138,7 +134,6 @@ class Email extends Controller{
     /**
      * 通过id获取发件人姓名 id=（c/u）+id
      * 已实装
-     * 修改 2018-3-24 张煜
      */
     private function getpostername($id){//获取发件人姓名
         if(strpos($id,'c')!==false){
@@ -160,7 +155,6 @@ class Email extends Controller{
     /**
      * 内部方法 获取收件人姓名
      * 已实装
-     * 2018-3-3 张煜
      */
     private function getrecipientsname($id){//获取收人的姓名，XXXX XXXX的方式
         $list=explode(",",$id);
@@ -174,9 +168,7 @@ class Email extends Controller{
     }
     /**
      * 内部方法 获取发件时间距离现在过去几分钟
-     * 已实装
-     * 2018-3-3 张煜
-     */
+     * 已实装     */
     private function gettimebefore($time){//获取距离现在时间
         $nowtime=date('Y-m-d H:i');
         $now = strtotime($nowtime);
@@ -195,7 +187,6 @@ class Email extends Controller{
      * 部分实装
      * 缺少附件部分
      * 需要修改
-     * 2018-3-4 张煜
      */
     public function getemaildetail($id){//获取email的详细内容
         $email=EmailModel::get(["ID"=>$id]);
@@ -215,7 +206,6 @@ class Email extends Controller{
     /**
      * 设置已读
      * 未实装i
-     * 2018-3-5 张煜
      */
     public function setRead($id,$userid){
         $email=EmailModel::get(['ID'=>$id]);
@@ -224,7 +214,6 @@ class Email extends Controller{
     }
     /**
      * 发送邮件
-     * 2018-3-5 张煜
      */
     public function send($name,$poster,$recipients,$type,$note,$from,$resource){
         $email=new EmailModel();
@@ -254,7 +243,6 @@ class Email extends Controller{
     }
     /**
      * 发送全网通知
-     * 2018-3-24 张煜
      */
     public function sendall($name,$poster,$note){
         $email=new EmailModel();
@@ -277,7 +265,6 @@ class Email extends Controller{
     }
     /**
      * 获取所有发包接包人员
-     * 2018-3-24 张煜
      */
     public function getallusers(){
         $list1=\app\api\model\Administractors::all();
@@ -357,8 +344,6 @@ class Email extends Controller{
     }
     /**
      * 获取当前id下的buglist
-     * 2018-3-16 张煜
-     * 修改 2018-3-24 张煜
      */
     public function getbuglistbyid($id,$userid){
         $data1=EmailModel::all(["Type"=>'bug']);
@@ -387,7 +372,6 @@ class Email extends Controller{
     }
     /**
      * 获取人员信息
-     * 2018-3-24 张煜
      */
     public function getuserlist($term){
         $list1=\think\Db::query("select * from administrators where UserName like '%".$term."%'");

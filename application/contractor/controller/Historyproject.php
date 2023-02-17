@@ -4,7 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 历史记录详细页面，不过并不想改，等alpha版再说
- * 部分实装
  */
 class Historyproject extends Controller
 {

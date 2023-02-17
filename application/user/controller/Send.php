@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 成果文件提交界面
- * 未实装
- * 好像还有bug
  */
 class Send extends Controller
 {

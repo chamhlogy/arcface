@@ -4,10 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 时间表
- * 不符合现在设计思路
- * 可能弃用
- * 不建议
- * 2018-3-4 张煜
  */
 class Time extends Controller
 {

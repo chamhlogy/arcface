@@ -6,7 +6,6 @@ use think\Controller;
  * 公司详情界面
  * 部分实装
  * 不想改，等alpha版
- * 2018-3-4 张煜
  */
 class Companydetail extends Controller
 {

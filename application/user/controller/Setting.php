@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 设置页面
- * 未实装
- * 界面未设计
  */
 class Setting extends Controller
 {

@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 资源详情页面
- * 未实装
- * 页面未设计
  */
 class Resourcedetail extends Controller
 {

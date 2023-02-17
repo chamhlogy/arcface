@@ -4,7 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 资源管理
- * 未实装
  */
 class Resourcecontrol extends Controller
 {

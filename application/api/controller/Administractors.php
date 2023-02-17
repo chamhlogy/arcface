@@ -172,8 +172,6 @@ class Administractors extends Controller
     }
     /**
      * 通过cookie实现面部识别
-     * 2018-3-25 张煜
-     * 2018-3-29袁宜照更新
      * $user->FaceInformation改为文件夹名
      */
     public function facecheckbycookie($cookie, $faceinform)
@@ -222,9 +220,6 @@ class Administractors extends Controller
     }
     /**
      * 实现通过手机号码登陆
-     * 实装
-     * 2018-3-4 张煜
-     * 2018-3-12 袁宜照，将人脸检测和登录分离，检测人脸的过程在html页面已经完成
      */
     public function loginbyphonenumber($phonenumber, $password)
     {
@@ -287,7 +282,6 @@ class Administractors extends Controller
     }
     /**
      * 获取管理员名字
-     * 2018-3-24 张煜
      */
     public function getusername($id)
     { //通过id获取发包人员姓名
@@ -300,7 +294,6 @@ class Administractors extends Controller
     }
     /**
      * 获取用户信息
-     * 2018-3-24 张煜
      */
     public function getuserdetail($userid)
     {
@@ -316,7 +309,6 @@ class Administractors extends Controller
     }
     /**
      * 登出方法
-     * 2018-3-24 张煜
      */
     public function logout($userid)
     {
@@ -329,7 +321,6 @@ class Administractors extends Controller
     }
     /**
      * 找回密码
-     * 2018-4-3袁宜照
      */
     public function newpassword($phone, $newpassword)
     {
@@ -345,7 +336,6 @@ class Administractors extends Controller
     }
     /**
      * 获取头像
-     * 2018-4-7 张煜
      */
     public function gethead($userid)
     {

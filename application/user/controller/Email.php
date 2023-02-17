@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * email详情界面，照搬contracotor的
- * 部分实装
- * 201-3-4 张煜
  */
 class Email extends Controller
 {

@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * email的详情页面
- * 实装了内容页面，下半部分的回复部分未实装
- * 2018-3-4 张煜
  */
 class Email extends Controller
 {

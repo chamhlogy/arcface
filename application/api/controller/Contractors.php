@@ -50,10 +50,6 @@ class Contractors extends Controller{
             return json(['status'=>-2]);
         }
     }
-    /**
-     * 修改用户信息
-     * 修改 2018-3-24 张煜
-     */
     public function change($id,$name,$gender,$birthday,$nation,$phonenumber,$emergencyname,$emergencyphone,$password){
         $userid=$this->checkuser($id);
         if($userid){
@@ -76,9 +72,6 @@ class Contractors extends Controller{
             }
         }
     }
-    /**
-     * 获取用户信息
-     */
     public function read(){
         $user=UserModel::get($_POST['UserName']);
         if($user){
@@ -116,10 +109,6 @@ class Contractors extends Controller{
             return '未知';
         }
     }
-    /**
-     * 检查cookie中的id序列号是否符合并返回真正id
-     * 2018-3-4 张煜
-     */
     public  function checkuser($id){
         $user=UserModel::get(["Cookie"=>$id]);
         if($user){
@@ -128,12 +117,6 @@ class Contractors extends Controller{
             return 0;
         }
     }
-    /**
-     * 人脸检测
-     * 2018-3-12袁宜照
-     * 2018-3-29袁宜照更新
-     * $user->FaceInformation改为文件夹名
-     */
     public function facecheck($phonenumber,$faceinform)
     {
         $user=UserModel::get(["PhoneNumber"=>$phonenumber]);
@@ -179,8 +162,6 @@ class Contractors extends Controller{
     }
     /**
      * 通过cookie实现面部识别
-     * 2018-3-25 张煜
-     * 2018-3-29袁宜照更新
      * $user->FaceInformation改为文件夹名
     */
     public function facecheckbycookie($cookie,$faceinform){
@@ -225,13 +206,6 @@ class Contractors extends Controller{
         }
         else return null;
     }
-    /**
-     * 实现通过手机号码登陆
-     * 实装
-     * 2018-3-4 张煜
-     * 2018-3-12 袁宜照，将人脸检测和登录分离，检测人脸的过程在html页面已经完成
-     * 2018-3-16 yyz 修改登陆逻辑
-     */
     public function loginbyphonenumber($phonenumber,$password){
         $user=UserModel::get(["PhoneNumber"=>$phonenumber]);
         if($user){
@@ -288,13 +262,6 @@ class Contractors extends Controller{
 		} 
 		return $keys; 
     }
-    /**
-     * 获取接包人员的等待列表
-     * 包括
-     * bug 操作 资源
-     * 2018-3-6 张煜
-     * 2018-3-16 张煜
-     */
     public function waitinglist($id){
         $userid=$this->checkuser($id);
         if($userid){
@@ -309,10 +276,6 @@ class Contractors extends Controller{
             return array_merge($buglist,$resourcechange,$controllist,$resultupload,$resourcelist);
         }
     }
-    /**
-     * 获取该发包人员的聊天
-     * 2018-3-7 张煜
-     */
     public function chatingbox($id){
         $chartingbox=new \app\api\controller\ChatingBox();
         $project=new \app\api\controller\Project();
@@ -320,10 +283,6 @@ class Contractors extends Controller{
         $data=$chartingbox->getallbyprojectid($projectidlist);
         return $data;
     }
-    /**
-     * 获取用户信息
-     * 2018-3-24 张煜
-     */
     public function getuserdetail($userid){
         $user=UserModel::get(['ContractorID'=>$userid]);
         if($user){
@@ -340,10 +299,6 @@ class Contractors extends Controller{
             return $data;
         }
     }
-    /**
-     * 登出方法
-     * 2018-3-24 张煜
-     */
     public function logout($userid){
         $user=UserModel::get(['Cookie'=>$userid]);
         if($user){
@@ -352,10 +307,6 @@ class Contractors extends Controller{
             $user->save();
         }
     }
-    /**
-     * 自动填充的查找功能
-     * 2018-3-24 张煜
-     */
     public function autoc($term){
         $list=\think\Db::query("select * from contractor where UserName like '%".$term."%'");
         $data=[];
@@ -365,10 +316,6 @@ class Contractors extends Controller{
         }
         return $data;
     }
-    /**
-     * 找回密码
-     * 2018-4-3袁宜照
-     */
     public function newpassword($phone,$newpassword)
     {
         $user=UserModel::get(['PhoneNumber'=>$phone]);

@@ -4,7 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 项目完成打分页面
- * 2018-3-21 张煜
  */
 class Projectrank extends Controller
 {

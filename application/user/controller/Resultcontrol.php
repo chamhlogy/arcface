@@ -4,7 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 选择上传资源的页面
- * 2018-3-25 张煜
  */
 class Resultcontrol extends Controller
 {

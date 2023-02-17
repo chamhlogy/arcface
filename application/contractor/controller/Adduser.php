@@ -4,7 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 为项目添加人员列表页面
- * 已实装
  */
 class Adduser extends Controller
 {

@@ -2,14 +2,9 @@
 namespace app\api\controller;
 use think\Controller;
 use app\api\model\Users as UserModel;
-/**
- * 用户数据库操作类
- * 部分实装
- */
+
 class Users extends Controller{
-    /**
-     * 注册方法
-     */
+
     public function register(){
         $data=new UserModel($_POST);
         try{
@@ -21,9 +16,7 @@ class Users extends Controller{
             return json(['status'=>0]);
         }
     }
-    /**
-     * 登陆方法
-     */
+
     public function login(){
         $data=UserModel::get($_POST['UserName']);//从数据库调取此用户信息
         if($data){//判断是否有此用户名，感觉没必要告诉用户数据库是否为空，而且不知道model的空数据怎么检测所以不管了~
@@ -714,10 +707,7 @@ class Users extends Controller{
             $user->save();
         }
     }
-    /**
-     * 找回密码
-     * 2018-4-3袁宜照
-     */
+
     public function newpassword($phone,$newpassword)
     {
         $user=UserModel::get(['PhoneNumber'=>$phone]);

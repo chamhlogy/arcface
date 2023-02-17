@@ -4,13 +4,10 @@ use think\Controller;
 use app\api\model\Companies as CompanyModel;
 /**
  * 公司数据库操作类
- * 部分实装
  */
 class Companies extends Controller{
     /**
      * 获取公司的雷达数据
-     * 已实装
-     * 2018-3-2 张煜
      */
     public function getradardata($id){//获取公司雷达数据
         $company=CompanyModel::get(["ID"=>$id]);
@@ -48,7 +45,6 @@ class Companies extends Controller{
     }
     /**
      * 通过id获取公司名
-     * 已实装
      */
     public function getcompanyname($id){
         $company=CompanyModel::get(["ID"=>$id]);
@@ -56,7 +52,6 @@ class Companies extends Controller{
     }
     /**
      * 获取公司详细信息
-     * 已实装
      */
     public function getcompanydata($id){
         $company=CompanyModel::get(["ID"=>$id]);
@@ -82,7 +77,6 @@ class Companies extends Controller{
     }
     /**
      * 新建公司
-     * 已实装
      */
     public function add($name,$document,$bankcardnumber,$phonenumber,$principalname){//新建公司
         $company = new CompanyModel();
@@ -97,7 +91,6 @@ class Companies extends Controller{
     }
     /**
      * 设置公司成员（覆盖）
-     * 已实装
      */
     public function setmembers($id,$memberlist){//设置公司成员
         $company = CompanyModel::get(["ID"=>$id]);
@@ -120,7 +113,6 @@ class Companies extends Controller{
     }
     /**
      * 清除公司
-     * 已实装
      */
     public function delete($id){//清除公司
         $company=companyModel::get(["ID"=>$id]);
@@ -128,7 +120,6 @@ class Companies extends Controller{
     }
     /**
      * 获取公司列表
-     * 2018-3-8 张煜
      */
     public function getallcompanieslist(){
         $list=companyModel::all();
@@ -154,7 +145,6 @@ class Companies extends Controller{
     }
     /**
      * 通过公司名获取id
-     * 2018-3-17 袁宜照
      */
     public function getcompanyid($name){
         if($name == '无')return json(['status'=>2]);

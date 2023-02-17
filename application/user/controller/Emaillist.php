@@ -4,10 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 获取email列表
- * 有部分bug
- * 1不能按时间顺序排列
- * 2不能使用右上角x来实现已读
- * 2018-3-4 张煜
  */
 class Emaillist extends Controller
 {

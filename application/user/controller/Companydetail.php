@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 公司详情界面
- * 照搬contractor的内容，要改
- * 2018-3-4 张煜
  */
 class Companydetail extends Controller
 {

@@ -12,13 +12,8 @@ class Project extends Controller
 {
     private $image = ['11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg', '24.jpg', '25.jpg', '26.jpg', '7.jpg', '8.jpg'];
     private $imagenum = 14;
-    /**
-     * 通过userid获取数据库第一个项目（已过期）
-     * 已废弃 已不可使用
-     * 不建议使用
-     */
     public function getbasicproject($userid)
-    { //已过期，不建议使用
+    { 
         $project = ProjectModel::get(['UserId' => $userid]);
         if ($project) {
             switch ($project->SafetyGrade) {
@@ -51,11 +46,6 @@ class Project extends Controller
             return 0;
         }
     }
-    /**
-     * 获取项目的结构
-     * 服务于日曜图
-     * 已实装
-     */
     public function getprojectstructuretree($projectid)
     { //获取项目的树形结构图
         $style = [[], ['color' => '#F54F4A'], ['color' => '#27727B'], ['color' => '#B5C334']];
@@ -313,7 +303,6 @@ class Project extends Controller
     }
     /**
      * 获取该项目的子项目列表
-     * 2018-3-7 张煜
      */
     public function getallprojectchildrenlist($id)
     {
@@ -342,7 +331,6 @@ class Project extends Controller
     }
     /**
      * 获取该项目及其子项目下的所有接包人员信息
-     * 2018-3-7 张煜
      */
     public function getprojectuserlist($id)
     {
@@ -380,7 +368,6 @@ class Project extends Controller
 
     /**
      * 获取该发包人员手下所有的接包人员信息
-     * 2018-3-7 张煜
      */
     public function getallprojectuserlist($id)
     {
@@ -423,7 +410,6 @@ class Project extends Controller
     }
     /**
      * 获取项目中所有的人员信息，为当前人员列表
-     * 2018-3-7 张煜
      */
     public function getprojectreadylist($id)
     {
@@ -508,12 +494,6 @@ class Project extends Controller
         }
     }
 
-    /**
-     * 获取所有项目的延期情况
-     * 为发包人员的饼图服务
-     * 已实装
-     * 需要修改
-     */
     public function getprojectpan($userid)
     { //获取所有项目延期情况
         $ontime = ProjectModel::all(['State' => '进度正常', "Contractor" => $userid]);
@@ -529,8 +509,6 @@ class Project extends Controller
     }
     /**
      * 获取所有完成的历史项目
-     * 已实装
-     * 需要修改
      */
     public function gethistoryproject()
     { //获取所有历史项目
@@ -551,7 +529,6 @@ class Project extends Controller
     }
     /**
      * 获取指定userid下的历史记录
-     * 已实装
      *
      */
     public function gethistoryprojectbyuserid($userid)
@@ -573,9 +550,6 @@ class Project extends Controller
         return $data;
     }
     /**
-     * 获取所有等待人员分配的项目
-     * 已实装
-     * 需要修改
      */
     public function getwaitinguserproject($userid)
     { //获取等待人员分配的project
@@ -619,8 +593,6 @@ class Project extends Controller
         return $data;
     }
     /**
-     * 获取延期项目
-     * 2018-3-16 张煜
      */
     public function getdelayproject($userid)
     {
@@ -660,7 +632,6 @@ class Project extends Controller
     }
     /**
      * 获取进度正常项目
-     * 2018-3-16 张煜
      */
     public function getontimeproject($userid)
     {
@@ -679,9 +650,6 @@ class Project extends Controller
         return $data;
     }
     /**
-     * 获取所有等待资源分配的项目
-     * 已实装
-     * 需要修改
      *
      */
     public function getwaitingresourceproject($userid)
@@ -708,10 +676,6 @@ class Project extends Controller
         $data = \think\Db::query("select * from project where UserID like '%," . $id . ",%'");
         return $data;
     }
-    /**
-     * 获取该userid下所有等待确认的项目
-     * 已实装
-     */
     public function getuserwaitingprojectbyuserid($userid)
     { //获取等待接包人员确认接收的项目
         $list = $this->getprojectbyuserid($userid);
@@ -732,7 +696,6 @@ class Project extends Controller
     }
     /**
      * 获取此userid下所有正在进行的项目
-     * 已实装
      */
     public function getuserworkingprojectbyuserid($userid)
     { //获取含此userid的正在进行的项目
@@ -808,7 +771,6 @@ class Project extends Controller
     /**
      * 为项目添加新的子项目
      * 已时装
-     * 2018-3-7 张煜
      */
     public function addnewchildproject($fatherproject, $contractor, $starttime, $endtime, $safetygrade, $projectname, $class, $plan, $resultnum, $price)
     {
@@ -819,7 +781,6 @@ class Project extends Controller
     /**
      * 为项目设置子项目id（覆盖）
      * 已实装
-     * 2018-3-7 张煜
      */
     public function setprojcetchild($id, $children)
     {
@@ -830,7 +791,6 @@ class Project extends Controller
     /**
      * 为项目添加子项目id（不覆盖）
      * 已实装
-     * 2018-3-7 张煜
      */
     public function addprojectchild($id, $children)
     {
@@ -992,7 +952,6 @@ class Project extends Controller
     }
     /**
      * 为项目添加成果的id（覆盖）
-     * 已实装
      */
     public function setresultresourceid($id, $resourceidlist)
     { //添加成果id
@@ -1005,9 +964,6 @@ class Project extends Controller
     }
     /**
      * 设置项目的完成度并设置项目的状态（进度正常、可能延期、延期）
-     * 已实装
-     * 需要修改
-     * 等alpha版
      */
     public function setcompeletegrade($id)
     { //设置项目完成度，并设置项目状态
@@ -1029,12 +985,7 @@ class Project extends Controller
         }
         $project->save();
     }
-    /**
-     * 获取项目详情中的仪表盘数据
-     * 已实装
-     * 需要修改
-     * 等alpha版
-     */
+    /**     */
     public function getspeederdata($id)
     {
         $project = ProjectModel::get(["ID" => $id]);
@@ -1342,7 +1293,6 @@ class Project extends Controller
     }
     /**
      * 通过确认获取项目
-     * 2018-3-8 袁宜照
      *
      */
     public function confirmProject($id)
@@ -1358,7 +1308,6 @@ class Project extends Controller
     }
     /**
      * 获取发包人员id
-     * 2018-3-9 张煜
      */
     public function getcontractorid($id)
     {
@@ -1369,7 +1318,6 @@ class Project extends Controller
     }
     /**
      * 添加项目成果id(不覆盖)
-     * 2018-3-9 张煜
      */
     public function addprojectresultid($id, $resource)
     {
@@ -1388,7 +1336,6 @@ class Project extends Controller
     }
     /**
      * 签到并开始工作
-     * 2018-3-9袁宜照
      */
     public function checkAndWork($proid)
     {
@@ -1416,7 +1363,6 @@ class Project extends Controller
     }
     /**
      * 获取该project 的resultid
-     * 2018-3-16 张煜
      */
     public function getprojectresultid($id)
     {
@@ -1424,7 +1370,6 @@ class Project extends Controller
     }
     /**
      * 获取该userid下的所有project result id
-     * 2018-3-16 张煜
      */
     public function getprojectresultidbycontractorid($userid)
     {
@@ -1518,7 +1463,6 @@ class Project extends Controller
     }
     /**
      * 检查是否有此人在该项目中
-     * 2018-3-17 张煜
      */
     public function checkuser($userid, $id)
     {
@@ -1535,7 +1479,6 @@ class Project extends Controller
     }
     /**
      * 设置项目评分
-     * 2018-3-21 张煜
      * 2018-4-30 修改
      */
     public function setprojectrank($id, $implementationgrade, $totalgrade, $qualitygrade, $usergrade)

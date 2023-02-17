@@ -4,7 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 当前进行项目列表界面
- * 已实装
  */
 class Index extends Controller
 {

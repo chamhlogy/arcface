@@ -4,7 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 资源查看页面
- * 已实装
  */
 class Resourcecheck extends Controller
 {

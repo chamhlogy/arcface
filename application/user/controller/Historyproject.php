@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 历史记录详细界面
- * 照搬contractor
- * 实装
  */
 class Historyproject extends Controller
 {

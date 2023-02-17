@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 项目人员添加的详细页面
- * 未实装
- * 界面未设计
  * 
  */
 class Adduserdetail extends Controller

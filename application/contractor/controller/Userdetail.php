@@ -4,8 +4,6 @@ use think\Controller;
 //use think\db;
 /**
  * 用户详细页面
- * 部分实装
- * 不想动
  */
 class Userdetail extends Controller
 {

@@ -4,13 +4,10 @@ use think\Controller;
 use app\api\model\ChatingBox as ChatingBoxModel;
 /**
  * 聊天框
- * 部分实装
- * 需要改
  */
 class ChatingBox extends Controller{
     /**
      * 通过项目id获取所有聊天内容
-     * 已实装
      */
     public function read($projectid){
         $list=ChatingBoxModel::all(['Project'=>$projectid]);
@@ -30,7 +27,6 @@ class ChatingBox extends Controller{
     }
     /**
      * 发送聊天
-     * 已实装
      */
     public function send($user,$status,$time,$note,$projectid){
         $data=new ChatingBoxModel;

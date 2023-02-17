@@ -1,11 +1,6 @@
 <?php
 namespace app\user\controller;
 use think\Controller;
-//use think\db;
-/**
- * 以后会整合到设置里
- * 不建议
- */
 class Resourcecheck extends Controller
 {
     public function index($id){

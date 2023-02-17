@@ -43,7 +43,6 @@ class Index extends Controller
     
     /**
      * 获取聊天框
-     * 2018-3-7 张煜
      */
     public function chatingbox($id){
         $user=new \app\api\controller\Contractors();
